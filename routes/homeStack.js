@@ -1,15 +1,18 @@
-import { createAppContainer } from "react-navigation";
 import Home from "../screens/home";
 import ReviewDetails from '../screens/reviewDetails'
-import About from '../screens/about'
 import { createStackNavigator } from "react-navigation-stack"
+import Header from "../shared/header";
+import React from "react";
+
 
 const screens={
     Home:{
         screen:Home,
-        navigationOptions:{
-            title:'BookZone',
-        }
+        navigationOptions:({navigation})=>{
+            return {
+                headerTitle:()=> <Header navigation={navigation} title='Book Zone'/>,
+            }
+        }       
     },
     ReviewDetails:{
         screen:ReviewDetails,
@@ -28,4 +31,4 @@ const HomeStack = createStackNavigator(screens,{
     }
 });
 
-export default createAppContainer(HomeStack);
+export default HomeStack;
