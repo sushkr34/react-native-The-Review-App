@@ -1,19 +1,19 @@
 import React from 'react'
 import {MaterialIcons} from '@expo/vector-icons'
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 
 export default function Header ({navigation,title}){
     const openMenu=()=>{
         navigation.openDrawer()
     }
     return (
-        <ImageBackground source={require('../assets/game_bg.png')} style={styles.header}>
+        <View style={styles.header}>
             <MaterialIcons name='menu' size={28} onPress={openMenu} style={styles.icon}/>
             <View style={styles.headerTitle}>
                 <Image source={require('../assets/heart_logo.png')} style={styles.headerImage}/>
                 <Text style={styles.headerText}>{title}</Text>
             </View>
-        </ImageBackground>
+        </View>
     );
 }
 
